@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet" />
     <title>Rocont</title>
   </head>
   <body>
@@ -11,7 +12,7 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-          <img src="./public/svg/rocont_label.svg" alt="Rocont Logo" />
+          <img src="/svg/rocont_label.svg" alt="Rocont Logo" />
           <ul class="nav-links">
             <li><a href="#about_system">О системе</a></li>
             <li><a href="#architecture">Архитектура</a></li>
@@ -20,11 +21,44 @@
             <li><a href="#for_our">Для своих</a></li>
           </ul>
           <div class="nav-toggle">
-            <img src="./public/svg/burger_menu.svg" alt="burger menu" />
+            <img src="/svg/burger_menu.svg" alt="burger menu" />
           </div>
         </nav>
       </header>
     </div>
+
+    <!-- Main Section -->
+    <section class="main-section">
+      <div class="container">
+        <div class="main-content">
+          <div class="info-content">
+            <h1>Просто потому<br />что можем</h1>
+            <p>
+              Мы запустили основной цикл в 06:42.
+              <br />Результаты наблюдаются, но не зафиксированы. <br />Рекомендуем сохранять спокойствие до<br />следующего сигнала.
+            </p>
+          </div>
+          <video class="main-video" src="/video/mainPanel.mp4" autoplay loop muted playsinline></video>
+          <div class="mobile-title-content">
+            <p>Просто потому что можем с Collagen</p>
+          </div>
+          <div class="mobile-text-content">
+            <p>Мы запустили основной цикл в 06:42. Результаты наблюдаются, но не зафиксированы. Рекомендуем сохранять спокойствие до следующего сигнала.</p>
+          </div>
+          <div class="main-buttons">
+            <button class="try-button" onclick="location.href='#try'">
+              <p>Попробовать просто так</p>
+              <img src="/svg/arrow.svg" alt="arrow" />
+            </button>
+            <p class="mobile-certificate-content">Сертификат есть. Но это не точно. СГР №AM.01.01 .01.003.R.00 o47 4.06.24</p>
+            <div class="certificate-content">
+              <p>Сертификат есть. Но это не точно.</p>
+              <p>СГР №AM.01.01 .01.003.R.00 o47 4.06.24</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
