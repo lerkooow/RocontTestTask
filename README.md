@@ -10,9 +10,11 @@ JavaScript, HTML, SCSS, Vite
 
 ## Ссылка на деплой проекта:
 
+https://rocont-test-task-ruddy.vercel.app/
+
 ## Установка и запуск приложения:
 
-1.Клонировать репозиторий на свое устройство git clone
+1.Клонировать репозиторий на свое устройство git clone https://github.com/lerkooow/RocontTestTask.git
 
 2.Установить зависимости npm install
 
