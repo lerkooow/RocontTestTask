@@ -18,35 +18,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-ymaps.ready(function () {
-    const myMap = new ymaps.Map("map", {
-        center: [54.7388, 55.9721],
-        zoom: 14,
-        controls: []
-    }, {
-        suppressMapOpenBlock: true
-    });
 
-    myMap.behaviors.disable(['scrollZoom', 'drag', 'multiTouch']);
-});
-
+// Carousel
 
 const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const cards = document.querySelectorAll('.carousel-card');
+const cards = document.querySelectorAll('.carousel__card');
 
 let currentIndex = 0;
-const cardWidth = 300;
-const visibleCards = 3;
-const maxIndex = cards.length - visibleCards;
+
+function getCardWidth() {
+    const card = cards[0];
+    return card ? card.getBoundingClientRect().width + 8 : 0;
+}
+
+function getVisibleCardsCount() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 480) return 1;
+    if (screenWidth <= 960) return 2;
+    return 3;
+}
 
 function updateCarousel() {
+    const cardWidth = getCardWidth();
     const translateX = -currentIndex * cardWidth;
     carouselTrack.style.transform = `translateX(${translateX}px)`;
 
+    const maxIndex = getMaxIndex();
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex >= maxIndex;
+}
+
+function getMaxIndex() {
+    const visibleCards = getVisibleCardsCount();
+    return Math.max(0, cards.length - visibleCards);
 }
 
 prevBtn.addEventListener('click', () => {
@@ -57,13 +63,12 @@ prevBtn.addEventListener('click', () => {
 });
 
 nextBtn.addEventListener('click', () => {
+    const maxIndex = getMaxIndex();
     if (currentIndex < maxIndex) {
         currentIndex++;
         updateCarousel();
     }
 });
-
-updateCarousel();
 
 let startX = 0;
 let isDragging = false;
@@ -74,8 +79,9 @@ carouselTrack.addEventListener('touchstart', (e) => {
 });
 
 carouselTrack.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
+    if (isDragging) {
+        e.preventDefault();
+    }
 });
 
 carouselTrack.addEventListener('touchend', (e) => {
@@ -86,31 +92,26 @@ carouselTrack.addEventListener('touchend', (e) => {
     const diffX = startX - endX;
 
     if (Math.abs(diffX) > 50) {
+        const maxIndex = getMaxIndex();
+
         if (diffX > 0 && currentIndex < maxIndex) {
             currentIndex++;
         } else if (diffX < 0 && currentIndex > 0) {
             currentIndex--;
         }
+
         updateCarousel();
     }
 });
 
 function updateResponsive() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth <= 768) {
-        const newMaxIndex = cards.length - 1;
-        if (currentIndex > newMaxIndex) {
-            currentIndex = newMaxIndex;
-        }
-    } else {
-        const newMaxIndex = cards.length - 3;
-        if (currentIndex > newMaxIndex) {
-            currentIndex = newMaxIndex;
-        }
+    const maxIndex = getMaxIndex();
+    if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
     }
     updateCarousel();
 }
 
 window.addEventListener('resize', updateResponsive);
-updateResponsive();
 
+updateResponsive();
