@@ -112,6 +112,48 @@
       </div>
     </section>
 
+    <!-- Feedback -->
+    <section class="feedback">
+      <div class="feedback__container">
+        <div class="feedback__left">
+          <h2 class="feedback__title">
+            Если вы тоже решили<br />
+            «а почему бы и нет»
+          </h2>
+          <ul class="feedback__features">
+            <li class="feedback__features-item">
+              <img src="/svg/arrow_circle.svg" alt="arrow_circle" />
+              Можно заказать много
+            </li>
+            <li class="feedback__features-item">
+              <img src="/svg/arrow_circle.svg" alt="arrow_circle" />
+              Доступ возможен через северный интерфейс
+            </li>
+            <li class="feedback__features-item">
+              <img src="/svg/arrow_circle.svg" alt="arrow_circle" />
+              Можно просто поболтать
+            </li>
+          </ul>
+        </div>
+        <div class="feedback__right">
+          <form>
+            <div class="feedback__form-group">
+              <input type="text" class="feedback__input" placeholder="Имя" required />
+              <input type="tel" class="feedback__input" placeholder="Телефон" required />
+            </div>
+            <div class="feedback__checkbox-group">
+              <input type="checkbox" class="feedback__checkbox" id="agreement" required />
+              <label class="feedback__label" for="agreement"> Согласен(-на) на обработку что угодно — лишь бы форма работала </label>
+            </div>
+            <button type="submit" class="feedback__submit">
+              <p>Отправить</p>
+              <img src="/svg/arrow_green.svg" alt="arrow" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <script type="module" src="/src/main.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </body>
