@@ -1,5 +1,23 @@
 import './styles/main.scss';
 
+// Toggle Burger Menu
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("menuToggle");
+    const navList = document.getElementById("navList");
+    const menuIcon = document.getElementById("menuIcon");
+
+    toggleButton.addEventListener("click", function () {
+        navList.classList.toggle("header__nav-list--open");
+
+        const isExpanded = navList.classList.contains("header__nav-list--open");
+
+        toggleButton.setAttribute("aria-label", isExpanded ? "Закрыть меню" : "Открыть меню");
+        menuIcon.src = isExpanded ? "/svg/close.svg" : "/svg/burger_menu.svg";
+        menuIcon.alt = isExpanded ? "close menu" : "burger menu";
+    });
+});
+
 ymaps.ready(function () {
     const myMap = new ymaps.Map("map", {
         center: [54.7388, 55.9721],
@@ -95,3 +113,4 @@ function updateResponsive() {
 
 window.addEventListener('resize', updateResponsive);
 updateResponsive();
+
