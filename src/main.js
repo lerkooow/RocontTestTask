@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
 // Carousel
 
 const carouselTrack = document.getElementById('carouselTrack');
@@ -115,3 +117,19 @@ function updateResponsive() {
 window.addEventListener('resize', updateResponsive);
 
 updateResponsive();
+
+
+// Map
+
+ymaps.ready(function () {
+    const myMap = new ymaps.Map("map", {
+        center: [54.7388, 55.9721],
+        zoom: 14,
+        controls: []
+    }, {
+        suppressMapOpenBlock: true
+    });
+
+
+    myMap.behaviors.disable(['scrollZoom', 'drag', 'multiTouch']);
+});
