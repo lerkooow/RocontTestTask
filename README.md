@@ -6,7 +6,7 @@
 
 ## Используемый стек:
 
-JavaScript, HTML, SCSS, Vite
+JavaScript, HTML, SCSS
 
 ## Ссылка на деплой проекта:
 
